@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>COBBY MOTORS - Admin Dashboard</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #172033;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 22px;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+header p {
+  margin-top: 5px;
+  color: #cbd5e1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-top: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.stat {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.stat h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.muted {
+  color: #667085;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th,
+td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8fafc;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.yellow {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.blue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+nav {
+  background: white;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  border-bottom: 1px solid #eee;
+}
+
+nav button {
+  border: none;
+  padding: 11px 16px;
+  border-radius: 20px;
+  background: #eef2f7;
+  cursor: pointer;
+}
+
+nav button.active {
+  background: #2563eb;
+  color: white;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+button.action {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 9px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  margin: 8px 0;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🛠️ COBBY MOTORS</h1>
+  <p>Admin Dashboard</p>
+</header>
+
+<nav>
+
+<button class="active" onclick="showSection('dashboard', this)">
+Dashboard
+</button>
+
+<button onclick="showSection('drivers', this)">
+Drivers
+</button>
+
+<button onclick="showSection('mechanics', this)">
+Mechanics
+</button>
+
+<button onclick="showSection('requests', this)">
+Requests
+</button>
+
+<button onclick="showSection('payments', this)">
+Payments
+</button>
+
+</nav>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="section active">
+
+<div class="grid">
+
+<div class="stat">
+<h2 id="driversCount">125</h2>
+<p class="muted">Drivers</p>
+</div>
+
+<div class="stat">
+<h2 id="mechanicsCount">38</h2>
+<p class="muted">Mechanics</p>
+</div>
+
+<div class="stat">
+<h2 id="requestsCount">14</h2>
+<p class="muted">Active Requests</p>
+</div>
+
+<div class="stat">
+<h2>KSh 85,000</h2>
+<p class="muted">Total Revenue</p>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Recent Activity</h2>
+
+<table>
+
+<tr>
+<th>Activity</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>New driver registered</td>
+<td><span class="badge green">Active</span></td>
+</tr>
+
+<tr>
+<td>Mechanic accepted job</td>
+<td><span class="badge blue">Accepted</span></td>
+</tr>
+
+<tr>
+<td>Repair payment received</td>
+<td><span class="badge green">Paid</span></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- DRIVERS -->
+
+<div id="drivers" class="section">
+
+<div class="card">
+
+<h2>Driver Management</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Driver One</td>
+<td>0700000000</td>
+<td><span class="badge green">Active</span></td>
+</tr>
+
+<tr>
+<td>Driver Two</td>
+<td>0711111111</td>
+<td><span class="badge green">Active</span></td>
+</tr>
+
+<tr>
+<td>Driver Three</td>
+<td>0722222222</td>
+<td><span class="badge yellow">Offline</span></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- MECHANICS -->
+
+<div id="mechanics" class="section">
+
+<div class="card">
+
+<h2>Mechanic Management</h2>
+
+<table>
+
+<tr>
+<th>Mechanic</th>
+<th>Specialization</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Mechanic One</td>
+<td>Engine</td>
+<td><span class="badge green">Available</span></td>
+</tr>
+
+<tr>
+<td>Mechanic Two</td>
+<td>Electrical</td>
+<td><span class="badge blue">On Job</span></td>
+</tr>
+
+<tr>
+<td>Mechanic Three</td>
+<td>Brakes</td>
+<td><span class="badge green">Available</span></td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- REQUESTS -->
+
+<div id="requests" class="section">
+
+<div class="card">
+
+<h2>Service Requests</h2>
+
+<table>
+
+<tr>
+<th>Vehicle</th>
+<th>Problem</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Toyota</td>
+<td>Engine Problem</td>
+<td>
+<span class="badge yellow">Pending</span>
+</td>
+</tr>
+
+<tr>
+<td>Nissan</td>
+<td>Battery</td>
+<td>
+<span class="badge blue">Assigned</span>
+</td>
+</tr>
+
+<tr>
+<td>Subaru</td>
+<td>Brake Problem</td>
+<td>
+<span class="badge green">Completed</span>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<!-- PAYMENTS -->
+
+<div id="payments" class="section">
+
+<div class="card">
+
+<h2>Payment Management</h2>
+
+<table>
+
+<tr>
+<th>Service</th>
+<th>Total</th>
+<th>Mechanic 85%</th>
+<th>Platform 15%</th>
+</tr>
+
+<tr>
+<td>Engine Repair</td>
+<td>KSh 10,000</td>
+<td>KSh 8,500</td>
+<td>KSh 1,500</td>
+</tr>
+
+<tr>
+<td>Brake Repair</td>
+<td>KSh 6,000</td>
+<td>KSh 5,100</td>
+<td>KSh 900</td>
+</tr>
+
+<tr>
+<td>Battery Service</td>
+<td>KSh 4,000</td>
+<td>KSh 3,400</td>
+<td>KSh 600</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function showSection(sectionId, button) {
+
+document
+.querySelectorAll(".section")
+.forEach(section => {
+section.classList.remove("active");
+});
+
+document
+.getElementById(sectionId)
+.classList.add("active");
+
+document
+.querySelectorAll("nav button")
+.forEach(btn => {
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
