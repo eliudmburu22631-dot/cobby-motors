@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>COBBY MOTORS - Mechanic</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #172033;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 22px;
+  border-radius: 0 0 25px 25px;
+}
+
+header h1 {
+  font-size: 25px;
+}
+
+header p {
+  margin-top: 6px;
+  color: #cbd5e1;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+nav button {
+  border: none;
+  background: #eef2f7;
+  padding: 10px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+nav button.active {
+  background: #16a34a;
+  color: white;
+}
+
+.container {
+  padding: 16px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat {
+  background: #ecfdf3;
+  padding: 16px;
+  border-radius: 15px;
+}
+
+.stat strong {
+  font-size: 20px;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: #667085;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff7df;
+  color: #9a6700;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+button.action {
+  width: 100%;
+  border: none;
+  border-radius: 13px;
+  padding: 14px;
+  background: #16a34a;
+  color: white;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+button.secondary {
+  background: #e9eef7;
+  color: #172033;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9e0ea;
+  border-radius: 11px;
+  margin: 6px 0 12px;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.item {
+  padding: 14px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.hidden {
+  display: none;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔧 COBBY MOTORS</h1>
+  <p>Mechanic App</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showPage('dashboard', this)">
+    Dashboard
+  </button>
+
+  <button onclick="showPage('requests', this)">
+    Requests
+  </button>
+
+  <button onclick="showPage('jobs', this)">
+    Jobs
+  </button>
+
+  <button onclick="showPage('earnings', this)">
+    Earnings
+  </button>
+
+  <button onclick="showPage('profile', this)">
+    Profile
+  </button>
+</nav>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+  <div class="grid">
+
+    <div class="stat">
+      <strong id="requestCount">1</strong>
+      <br>
+      <span class="muted">New Request</span>
+    </div>
+
+    <div class="stat">
+      <strong id="todayEarnings">KSh 0</strong>
+      <br>
+      <span class="muted">Today's Earnings</span>
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h2>🚗 Incoming Service Request</h2>
+
+    <p><strong>Toyota - Engine Problem</strong></p>
+
+    <br>
+
+    <p class="muted">
+      Driver: New Customer
+    </p>
+
+    <p class="muted">
+      📍 Location: Driver Location
+    </p>
+
+    <br>
+
+    <span class="badge">
+      Waiting for response
+    </span>
+
+   
