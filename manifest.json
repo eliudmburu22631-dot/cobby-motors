@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "COBBY MOTORS",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "COBBY MOTORS",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "cobby-motors-driver"
+}
