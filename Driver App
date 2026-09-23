@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COBBY MOTORS - Driver</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 22px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #cbd5e1;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .status {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #dcfce7;
+      color: #166534;
+      border-radius: 10px;
+    }
+
+    .service {
+      display: flex;
+      justify-content: space-between;
+      padding: 13px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    nav {
+      position: sticky;
+      bottom: 0;
+      background: white;
+      padding: 12px;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.1);
+    }
+
+    nav span {
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚗 COBBY MOTORS</h1>
+  <p>Driver Assistance</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Request a Mechanic</h2>
+
+    <label>Vehicle Registration</label>
+    <input id="vehicle" type="text" placeholder="e.g. KDA 123A">
+
+    <label>Vehicle Problem</label>
+    <textarea id="problem" placeholder="Describe the problem with your vehicle"></textarea>
+
+    <label>Service Type</label>
+    <select id="service">
+      <option>Engine Problem</option>
+      <option>Battery Problem</option>
+      <option>Tyre Problem</option>
+      <option>Brake Problem</option>
+      <option>Electrical Problem</option>
+      <option>Other</option>
+    </select>
+
+    <button onclick="requestMechanic()">Request Mechanic</button>
+
+    <div id="status" class="status">
+      ✅ Mechanic request submitted successfully.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>My Request</h2>
+
+    <div class="service">
+      <span>Status</span>
+      <strong id="requestStatus">No active request</strong>
+    </div>
+
+    <div class="service">
+      <span>Mechanic</span>
+      <strong id="mechanic">Waiting...</strong>
+    </div>
+
+    <div class="service">
+      <span>Estimated Cost</span>
+      <strong id="cost">--</strong>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Driver Services</h2>
+
+    <div class="service">
+      <span>📍 Track Mechanic</span>
+      <span>›</span>
+    </div>
+
+    <div class="service">
+      <span>🔧 Vehicle Diagnosis</span>
+      <span>›</span>
+    </div>
+
+    <div class="service">
+      <span>📋 Service History</span>
+      <span>›</span>
+    </div>
+
+    <div class="service">
+      <span>👤 My Profile</span>
+      <span>›</span>
+    </div>
+  </div>
+
+</div>
+
+<nav>
+  <span>🏠<br>Home</span>
+  <span>🔧<br>Mechanic</span>
+  <span>📍<br>Track</span>
+  <span>👤<br>Profile</span>
+</nav>
+
+<script>
+function requestMechanic() {
+  const vehicle = document.getElementById("vehicle").value;
+  const problem = document.getElementById("problem").value;
+
+  if (!vehicle || !problem) {
+    alert("Please enter your vehicle registration and describe the problem.");
+    return;
+  }
+
+  document.getElementById("status").style.display = "block";
+  document.getElementById("requestStatus").textContent = "Mechanic requested";
+  document.getElementById("mechanic").textContent = "Searching...";
+  document.getElementById("cost").textContent = "Pending";
+}
+</script>
+
+</body>
+</html>
